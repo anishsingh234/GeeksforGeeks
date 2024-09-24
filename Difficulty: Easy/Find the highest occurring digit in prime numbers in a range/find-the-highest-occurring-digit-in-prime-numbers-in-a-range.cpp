@@ -19,13 +19,12 @@ class Solution {
     }
 
     int maxDigit(int L, int R) {
-        vector<int> a(10, 0); // To count frequency of each digit
-        int maxPrime = -1; // To track the maximum prime
+        vector<int> a(10, 0); 
+        int maxPrime = -1;
         for (int i = L; i <= R; i++) {
             if (isPrime(i)) {
                 int temp = i;
-                maxPrime = max(maxPrime, i); // Update maxPrime
-                // Count digits of prime number
+                maxPrime = max(maxPrime, i); 
                 while (temp > 0) {
                     int digit = temp % 10;
                     a[digit]++;
@@ -33,20 +32,17 @@ class Solution {
                 }
             }
         }
-        // If no prime is found, return -1
         if (maxPrime == -1) {
             return -1;
         }
 
         int result = -1;
         int maxCount = -1;
-        // Find the digit with the highest frequency
         for (int i = 0; i < 10; i++) {
             if (a[i] > maxCount) {
                 maxCount = a[i];
                 result = i;
             } else if (a[i] == maxCount) {
-                // If the frequency is the same, choose the larger digit
                 result = max(result, i);
             }
         }
