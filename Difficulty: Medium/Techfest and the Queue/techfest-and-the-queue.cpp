@@ -7,26 +7,31 @@ using namespace std;
 
 class Solution {
 public:
-	int sumOfPowers(int a, int b){
-       vector<int> primeFactorPowers(b + 1, 0);
-       for (int i = 2; i <= b; ++i) {
-            if (primeFactorPowers[i] == 0) { 
-                for (int j = i; j <= b; j += i) {
-                    int num = j;
-                    int count = 0;
-                   while (num % i == 0) {
-                      num /= i;
-                      count++;
-                   }
-                   primeFactorPowers[j] += count;
-                }
+	int countSum(int x) {
+        int count = 0;
+        int temp = x;
+        for(int i = 2; i * i <= temp; i++) {
+            
+            while(x%i == 0) {
+                x /= i;
+                count++;
             }
+            
         }
-        int totalPoints = 0;
-        for (int i = a; i <= b; ++i) {
-             totalPoints += primeFactorPowers[i];
+        if(x != 1) {
+            count++;
         }
-        return totalPoints;
+        return count;
+    }
+
+	int sumOfPowers(int a, int b){
+	    int result = 0;
+	    
+	    while(a <= b) {
+	        result += countSum(a);
+	        a++;
+	    }
+	    return result;
 	}
 };
 
