@@ -10,27 +10,26 @@ using namespace std;
 
 class Solution {
   public:
-    bool palindrome(int a){
-        int num=a;
+    int check(int n){
         int sum=0;
-        while(a>0){
-            sum=sum*10+ a%10;
-            a=a/10;
+        int m=n;
+        while(n>0){
+            sum=(sum*10)+n%10;
+            n=n/10;
         }
-        if(sum==num){
-            return true;
+        if(m!=sum){
+            return false;
         }
-        return false;
+        return true;
     }
     bool PalinArray(vector<int> &arr) {
-       bool ans;
-       for(int i=0; i<arr.size(); i++){
-           ans=palindrome(arr[i]);
-           if(ans==false){
-               return ans;
-           }
-       }
-       return ans;
+        // code here
+        for(int i=0 ; i<arr.size(); i++){
+            if(!check(arr[i])){
+                return false;
+            }
+        }
+        return true;
     }
 };
 
