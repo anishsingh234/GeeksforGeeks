@@ -8,20 +8,35 @@ using namespace std;
 // User function template for C++
 class Solution {
   public:
-
-    void rearrange(vector<int> &arr) {
-        vector<int> positive,negative;
-        for(auto x:arr){
-            if(x>=0)positive.push_back(x);
-            else negative.push_back(x);
-        }
-        int i=0,j=0,k=0;
-        while(i<positive.size() and j<negative.size()){
-            if(k%2)arr[k++]=negative[j++];
-            else arr[k++]=positive[i++];
-        }
-        while(i<positive.size())arr[k++]=positive[i++];
-        while(j<negative.size())arr[k++]=negative[j++];
+  void rearrange(vector<int> &arr) {
+        int j=0,k=0;
+        int n = arr.size();
+	    vector<int> positive;
+	    vector<int> negative;
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        if(arr[i]>=0)
+	        {
+	            positive.push_back(arr[i]);
+	        }
+	        else{
+	            negative.push_back(arr[i]);
+	        }
+	    }
+	    
+	    int i=0;
+	    while(i<n)
+	    {
+	        if(j<positive.size())
+	        {
+	            arr[i++] = positive[j++];
+	        }
+	        if(k<negative.size())
+	        {
+	            arr[i++] = negative[k++];
+	        }
+	    }
     }
 };
 
