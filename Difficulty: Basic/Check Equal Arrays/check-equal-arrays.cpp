@@ -23,9 +23,12 @@ class Solution {
         for(int i=0; i<arr2.size(); i++){
             sum2+=arr2[i];
         }
+        // cout<<sum1<<" ";
+        // cout<<sum2<<" ";
         if(sum1==sum2){
             return true;
         }
+        
         return false;
     }
 };
