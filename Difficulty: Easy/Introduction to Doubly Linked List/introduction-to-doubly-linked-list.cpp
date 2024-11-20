@@ -76,9 +76,6 @@ public:
 class Solution {
   public:
     Node* constructDLL(vector<int>& arr) {
-        if(arr.empty()){
-            return nullptr;
-        }
         Node *head=new Node(arr[0]);
         Node *tail=head;
         for(int i=1; i<arr.size(); i++){
