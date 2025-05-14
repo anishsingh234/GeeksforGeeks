@@ -1,21 +1,20 @@
 //{ Driver Code Starts
-//Initial template for C++
-
-#include<bits/stdc++.h> 
+// Initial template for C++
+#include <bits/stdc++.h>
 using namespace std;
 
-// } Driver Code Ends
-//User function template for C++
 
-class Solution
-{
+// } Driver Code Ends
+
+class Solution {
   public:
-    string lookandsay(int n) {
+    string countAndSay(int n) {
+        // code here
         // code here
         if(n==1)
            return "1";
         string result="";
-        string s=lookandsay(n-1);
+        string s=countAndSay(n-1);
         for(int i=0;i<s.length(); i++){
             int count=1;
             while(i<s.length()-1 && s[i]==s[i+1]){
@@ -26,22 +25,23 @@ class Solution
         }
         return result;
         
-    }   
+    }
 };
+
 
 //{ Driver Code Starts.
 int main() {
     int t;
-    cin>>t;
-    while(t--)
-    {
+    cin >> t;
+    while (t--) {
         int n;
-        cin>>n;
+        cin >> n;
         Solution obj;
-        cout<<obj.lookandsay(n)<<endl;
-    
-cout << "~" << "\n";
-}
+        cout << obj.countAndSay(n) << endl;
+
+        cout << "~"
+             << "\n";
+    }
     return 0;
 }
 // } Driver Code Ends
